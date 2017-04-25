@@ -14,7 +14,7 @@ module Mongoid
 
           belongs_to_modifier_options = { class_name: Mongoid::History.modifier_class_name }
           belongs_to_modifier_options[:inverse_of] = options[:modifier_field_inverse_of] if options.key?(:modifier_field_inverse_of)
-          belongs_to options[:modifier_field].to_sym, belongs_to_modifier_options
+          belongs_to options[:modifier_field].to_sym, belongs_to_modifier_options, optional: true
 
           include MyInstanceMethods
           extend SingletonMethods
